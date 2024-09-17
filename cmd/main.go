@@ -1,11 +1,14 @@
 package main
 
 import (
-	"algorithms/alg"
 	"fmt"
 )
 
 func main() {
-	numbers := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17}
-	fmt.Println(alg.BinarySearch(numbers, 25))
+	ar1 := [3]int{1, 2, 3}
+	ar2 := [3]int{1, 2, 3}
+	ar3 := [3]int{1, 3, 2}
+
+	fmt.Println(ar1 == ar2)
+	fmt.Println(ar1 == ar3)
 }

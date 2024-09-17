@@ -1,5 +1,6 @@
 package alg
 
+// бинарный поиск, сложность O(log2(n))
 func BinarySearch(numbers []int, target int) int {
 	start := 0
 	len := len(numbers)
