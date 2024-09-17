@@ -6,7 +6,6 @@ import (
 )
 
 func main() {
-	numbers := []int{5, 9, 123, 457, 1654, 34654, 464, 2, 57, -123, 90}
-	maxNumber := alg.MaxNumber(numbers)
-	fmt.Println(maxNumber)
+	numbers := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17}
+	fmt.Println(alg.BinarySearch(numbers, 25))
 }
