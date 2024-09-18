@@ -1,6 +1,7 @@
 package main
 
 import (
+	"algorithms/alg"
 	"fmt"
 )
 
@@ -11,4 +12,6 @@ func main() {
 
 	fmt.Println(ar1 == ar2)
 	fmt.Println(ar1 == ar3)
+
+	fmt.Println(alg.BubbleSort([]int{5, 4, 6, 3, 7, 2, 8, 1, 9}))
 }
