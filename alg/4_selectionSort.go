@@ -10,10 +10,7 @@ func SelectionSort(numbers []int) []int {
 				minIndex = j
 			}
 		}
-
-		tmp := numbers[i]
-		numbers[i] = numbers[minIndex]
-		numbers[minIndex] = tmp
+		numbers[i], numbers[minIndex] = numbers[minIndex], numbers[i]
 	}
 
 	return numbers
@@ -30,9 +27,7 @@ func SelectionSortDesc(numbers []int) []int {
 			}
 		}
 
-		tmp := numbers[i]
-		numbers[i] = numbers[maxIndex]
-		numbers[maxIndex] = tmp
+		numbers[i], numbers[maxIndex] = numbers[maxIndex], numbers[i]
 	}
 
 	return numbers

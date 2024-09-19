@@ -6,9 +6,7 @@ func BubbleSort(numbers []int) []int {
 	for i := 0; i < len; i++ {
 		for j := 0; j < len-1; j++ {
 			if numbers[j+1] < numbers[j] {
-				tmp := numbers[j]
-				numbers[j] = numbers[j+1]
-				numbers[j+1] = tmp
+				numbers[j], numbers[j+1] = numbers[j+1], numbers[j]
 			}
 		}
 	}
@@ -22,9 +20,7 @@ func BubbleSortDesc(numbers []int) []int {
 	for i := 0; i < len; i++ {
 		for j := 0; j < len-1; j++ {
 			if numbers[j+1] > numbers[j] {
-				tmp := numbers[j]
-				numbers[j] = numbers[j+1]
-				numbers[j+1] = tmp
+				numbers[j], numbers[j+1] = numbers[j+1], numbers[j]
 			}
 		}
 	}
