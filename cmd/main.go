@@ -16,6 +16,7 @@ func main() {
 	graph["f"] = alg.WeightedEdge{"g": 1}
 	graph["g"] = alg.WeightedEdge{}
 
-	fmt.Println(alg.Dijkstra(graph, "a", "g"))
+	fmt.Println(alg.Dijkstra(graph, "a"))
+	fmt.Println(alg.Dijkstra(graph, "f"))
 
 }

@@ -10,7 +10,6 @@ import (
 type Dijkstra struct {
 	graph alg.WeightedGraph
 	start alg.Node
-	end   alg.Node
 	want  alg.Costs
 }
 
@@ -25,10 +24,11 @@ func TestDijkstra(t *testing.T) {
 	graph["g"] = alg.WeightedEdge{}
 
 	testData := []Dijkstra{
-		{graph, "a", "g", alg.Costs{"b": 2, "c": 1, "d": 6, "e": 3, "f": 4, "g": 5}},
+		{graph, "a", alg.Costs{"b": 2, "c": 1, "d": 6, "e": 3, "f": 4, "g": 5}},
+		{graph, "g", alg.Costs{"b": alg.Inf, "c": alg.Inf, "d": alg.Inf, "e": alg.Inf, "f": alg.Inf, "a": alg.Inf}},
 	}
 
 	for _, v := range testData {
-		assert.Equal(t, v.want, alg.Dijkstra(v.graph, v.start, v.end))
+		assert.Equal(t, v.want, alg.Dijkstra(v.graph, v.start))
 	}
 }

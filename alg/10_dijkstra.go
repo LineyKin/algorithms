@@ -1,44 +1,43 @@
 package alg
 
-import "fmt"
-
+// вершина (узел) графа
 type Node string
 
+// ребро взвешенного графа
 type WeightedEdge map[Node]int
 
+// взвешенный граф
 type WeightedGraph map[Node]WeightedEdge
 
+// таблица стоимостей
 type Costs map[Node]int
 
+// узлы, которые мы уже проверили
 type Processed []Node
 
-const inf = 1000000000
+const Inf = 1000000000
 
-func Dijkstra(graph WeightedGraph, start, end Node) Costs {
-
-	// таблица стоимостей
+// возвращает кратчайшие пути из вершины start в остальные вершины графа graph
+func Dijkstra(graph WeightedGraph, start Node) Costs {
 	costs := make(Costs)
-
-	// узлы, которые мы уже проверили
 	var processed Processed
 
+	// рёбра, выходящие из рассматриваемой вершины в соседние вершины
 	var neighbors WeightedEdge
 
-	for node, _ := range graph {
+	for node := range graph {
 		if node != start {
 			startEdge := graph[start]
 			val, ok := startEdge[node]
 			if ok {
 				costs[node] = val
 			} else {
-				costs[node] = inf
+				costs[node] = Inf
 			}
 		}
 	}
 
 	node := findNodeLowestCost(costs, processed)
-
-	fmt.Println(node)
 
 	for node != "" {
 		cost := costs[node]
@@ -59,7 +58,7 @@ func Dijkstra(graph WeightedGraph, start, end Node) Costs {
 }
 
 func findNodeLowestCost(costs Costs, processed Processed) Node {
-	lowestCost := inf
+	lowestCost := Inf
 	var lowestNode Node
 	for node, cost := range costs {
 		if cost < lowestCost && !processed.hasNode(node) {
