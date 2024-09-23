@@ -27,6 +27,7 @@ func TestBreadthFirstSearch(t *testing.T) {
 		{graph1, "a", "g", true},
 		{graph1, "a", "x", false},
 		{graph1, "a", "b", true},
+		{graph1, "a", "f", true},
 		{graph1, "x", "g", false},
 	}
 
