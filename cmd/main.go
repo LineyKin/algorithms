@@ -5,18 +5,42 @@ import (
 	"fmt"
 )
 
+// 5+10+11+7+5+1+5+10+15
 func main() {
+	tree := alg.Tree{
+		{
+			Val: 5,
+			Children: []alg.TreeNode{
+				{
+					Val: 10,
+					Children: []alg.TreeNode{
+						{Val: 11, Children: nil},
+					},
+				},
+				{
+					Val: 7,
+					Children: []alg.TreeNode{
+						{
+							Val: 5, Children: []alg.TreeNode{
+								{Val: 1, Children: nil},
+							},
+						},
+					},
+				},
+			},
+		},
+		{
+			Val: 5,
+			Children: []alg.TreeNode{
+				{Val: 10, Children: nil},
+				{Val: 15, Children: nil},
+			},
+		},
+	}
 
-	graph := make(alg.WeightedGraph)
-	graph["a"] = alg.WeightedEdge{"b": 2, "c": 1}
-	graph["b"] = alg.WeightedEdge{"f": 7}
-	graph["c"] = alg.WeightedEdge{"d": 5, "e": 2}
-	graph["d"] = alg.WeightedEdge{"f": 2}
-	graph["e"] = alg.WeightedEdge{"f": 1}
-	graph["f"] = alg.WeightedEdge{"g": 1}
-	graph["g"] = alg.WeightedEdge{}
+	t2 := alg.Tree{{Val: 15, Children: nil}}
 
-	fmt.Println(alg.Dijkstra(graph, "a"))
-	fmt.Println(alg.Dijkstra(graph, "f"))
+	fmt.Println(tree)
+	fmt.Println(t2.RecursiveTreeSum())
 
 }
